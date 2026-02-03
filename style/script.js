@@ -65,7 +65,8 @@ audio.onended = () => {
 };
 
 /* ================= COUNTDOWN ================= */
-const targetTime = Date.now() + 60 * 1000;
+const targetTime = new Date(new Date().getFullYear(), 1, 14, 18, 30).getTime();
+
 const box = document.getElementById("countdownBox");
 const overlay = document.getElementById("overlay");
 const climaxAudio = document.getElementById("climaxAudio");
@@ -136,4 +137,5 @@ enterBtn.onclick = () => {
     location.href = "main.html";
   }, 1200);
 };
+
 
