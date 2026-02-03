@@ -69,12 +69,23 @@ const targetTime = new Date(new Date().getFullYear(), 1, 14, 18, 30).getTime();
 const box = document.getElementById("countdownBox");
 const overlay = document.getElementById("overlay");
 const climaxAudio = document.getElementById("climaxAudio");
+const enterBtn = document.getElementById("enterBtn");
 
-setInterval(() => {
+const timer = setInterval(() => {
   const now = Date.now();
   const d = targetTime - now;
 
-  if (d <= 0) return startTransition();
+  if (d <= 0) {
+    clearInterval(timer);
+
+    days.innerText = hours.innerText = minutes.innerText = seconds.innerText = 0;
+
+    enterBtn.style.display = "block";
+    climaxAudio.play().catch(()=>{});
+    box.classList.add("heartbeat");
+
+    return;
+  }
 
   days.innerText = Math.floor(d / 86400000);
   hours.innerText = Math.floor(d / 3600000) % 24;
@@ -83,7 +94,6 @@ setInterval(() => {
 
   if (d < 10000) box.classList.add("shake");
 }, 1000);
-
 /* ================= HEART FALL ================= */
 setInterval(() => {
   const heart = document.createElement("span");
@@ -120,3 +130,9 @@ function renderPlaylist(){
 }
 renderPlaylist();
 
+enterBtn.onclick = () => {
+  overlay.classList.add("show");
+  setTimeout(() => {
+    location.href = "main.html";
+  }, 1200);
+};
