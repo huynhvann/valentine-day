@@ -25,27 +25,33 @@ trở nên dịu dàng hơn mỗi ngày.
 
 Valentine này,
 anh chỉ mong em luôn mỉm cười,
-và ở bên anh thật lâu nhé 💗
+và nếu có thể…
+hãy ở bên anh thật lâu nhé 💗
 
 Như khi playlist bắt đầu bằng I Love You của Bùi Công Nam:
 “Đổi ngàn lời bằng câu nói I love you, I love you
 Vọng ra thế giới, I love you, I love you” —
 anh chọn nói lời yêu bằng âm nhạc,
 vì có những cảm xúc
-chỉ cần nghe là đã hiểu.
+chẳng cần nói quá nhiều
+vẫn đủ chạm đến tim.
 
 Và khi playlist khép lại bằng Die With A Smile
-của Lady Gaga & Bruno Mars:
-“Nobody's promised tomorrow so I love you every night like it's the last night”,
+của Lady Gaga & Bruno Mars,
+anh nghe vang lên một câu rất khẽ:
+“If the world was ending, I'd wanna be next to you.”
+
+Khoảnh khắc ấy,
 anh chợt nhận ra…
-ngày mai có ra sao
-cũng chẳng còn quan trọng.
+ngày mai có ra sao cũng không quan trọng,
+bởi điều anh mong muốn nhất
+chỉ là được ở cạnh em
+trong từng khoảnh khắc của hiện tại này.
 
-Vì ngay lúc này đây,
-trong khoảnh khắc rất yên này,
-anh chỉ muốn nhắn với em một điều là:
+Và sau tất cả,
+anh cũng chẳng biết nói gì hơn ngoài câu:
 
-Anh yêu emmmmm, Ngọc Mai à!`;
+Anh yêu em, Ngọc Mai à!`;
 
 let index = 0;
 function typeWriter() {
