@@ -38,12 +38,14 @@ Và khi playlist khép lại bằng Die With A Smile
 của Lady Gaga & Bruno Mars:
 “Nobody's promised tomorrow so I love you every night like it's the last night”,
 anh chợt nhận ra…
-mọi lời đều trở nên thừa thãi.
+ngày mai có ra sao
+cũng chẳng còn quan trọng.
 
-Vì sau tất cả,
-anh chỉ muốn nói với em một điều thôi:
+Vì ngay lúc này đây,
+trong khoảnh khắc rất yên này,
+anh chỉ muốn nhắn với em một điều là:
 
-Anh yêu em, Ngọc Mai à.`;
+Anh yêu emmmmm, Ngọc Mai à!`;
 
 let index = 0;
 function typeWriter() {
