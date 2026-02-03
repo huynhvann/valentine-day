@@ -16,15 +16,34 @@ bgMusic.play().catch(() => {});
 
 /* ================= HANDWRITING ================= */
 const letter = document.getElementById("letter");
-const text = `Gửi người anh thương 💌
+const text = `Gửi người anh yêu 💌
 
-Cảm ơn em vì đã xuất hiện,
-làm cho thế giới của anh
+Đây là Valentine đầu tiên của chúng ta.
+Cảm ơn em vì đã bước vào cuộc đời anh,
+làm cho mọi điều quanh anh
 trở nên dịu dàng hơn mỗi ngày.
 
 Valentine này,
-chỉ mong em luôn mỉm cười
-và ở bên anh thật lâu nhé 💖`;
+anh chỉ mong em luôn mỉm cười,
+và ở bên anh thật lâu nhé 💗
+
+Như khi playlist bắt đầu bằng I Love You của Bùi Công Nam:
+“Đổi ngàn lời bằng câu nói I love you, I love you
+Vọng ra thế giới, I love you, I love you” —
+anh chọn nói lời yêu bằng âm nhạc,
+vì có những cảm xúc
+chỉ cần nghe là đã hiểu.
+
+Và khi playlist khép lại bằng Die With A Smile
+của Lady Gaga & Bruno Mars:
+“Nobody's promised tomorrow so I love you every night like it's the last night”,
+anh chợt nhận ra…
+mọi lời đều trở nên thừa thãi.
+
+Vì sau tất cả,
+anh chỉ muốn nói với em một điều thôi:
+
+Anh yêu em, Ngọc Mai à.`;
 
 let index = 0;
 function typeWriter() {
