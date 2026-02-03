@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Music 💖</title>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(180deg, #ffeaf4, #f3f8ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ================= MUSIC BOX ================= */
+    .music-box {
+      width: 420px;
+      padding: 28px 30px;
+      border-radius: 28px;
+      background: rgba(255,245,250,0.88);
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 20px 45px rgba(255,120,170,0.35),
+        inset 0 0 30px rgba(255,255,255,0.6);
+      text-align: center;
+    }
+
+    .title {
+      font-family: 'Pacifico', cursive;
+      font-size: 26px;
+      color: #d14b8f;
+      margin-bottom: 18px;
+    }
+
+    .song-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #b43c7c;
+      margin-bottom: 22px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ================= CONTROLS ================= */
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .ctrl-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+
+      background: linear-gradient(145deg, #ffe0ef, #ffc1da);
+      box-shadow:
+        0 8px 18px rgba(255,140,190,0.4),
+        inset 0 0 12px rgba(255,255,255,0.7);
+
+      color: #b0357a;
+      font-size: 16px;
+      transition: all 0.25s ease;
+    }
+
+    .ctrl-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(255,140,190,0.6);
+    }
+
+    .ctrl-btn.active {
+      background: linear-gradient(145deg, #ff7bb0, #ff4f91);
+      color: #fff;
+      box-shadow: 0 0 22px rgba(255,120,170,0.9);
+    }
+
+    /* PLAY BUTTON */
+    .ctrl-btn.play {
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      font-size: 22px;
+      background: linear-gradient(145deg, #ff7eb3, #ff4f91);
+      color: white;
+      box-shadow:
+        0 16px 36px rgba(255,90,140,0.75),
+        inset 0 0 20px rgba(255,255,255,0.55);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>💖 Valentine is coming 💖</h1>
+
+  <div id="countdown">
+    <div><span id="days">0</span>Ngày</div>
+    <div><span id="hours">0</span>Giờ</div>
+    <div><span id="minutes">0</span>Phút</div>
+    <div><span id="seconds">0</span>Giây</div>
+  </div>
+
+  <p class="note">Chờ đến 18:30 – 14/02 nhé 💌</p>
+  <div class="music-box">
+    <div class="title">💖 Valentine Playlist</div>
+
+    <div class="song-title" id="nowPlaying">Chưa phát bài nào</div>
+
+    <div class="controls">
+      <button class="ctrl-btn" onclick="toggleShuffle(this)">
+        <i class="fa-solid fa-shuffle"></i>
+      </button>
+
+      <button class="ctrl-btn" onclick="prevSong()">
+        <i class="fa-solid fa-backward-step"></i>
+      </button>
+
+      <button id="playBtn" class="ctrl-btn play" onclick="togglePlay()">
+        <i class="fa-solid fa-play"></i>
+      </button>
+
+      <button class="ctrl-btn" onclick="nextSong()">
+        <i class="fa-solid fa-forward-step"></i>
+      </button>
+
+      <button class="ctrl-btn" onclick="toggleRepeat(this)">
+        <i class="fa-solid fa-rotate-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- AUDIO -->
+  <audio id="audio"></audio>
+
+  <script>
+    const audio = document.getElementById("audio");
+
+    const playlist = [
+      { title: "Perfect – Ed Sheeran", src: "assets/music/Perfect.mp3" },
+      { title: "Thinking Out Loud – Ed Sheeran", src: "assets/music/Thinking.mp3" },
+      { title: "My Love – Westlife", src: "assets/music/MyLove.mp3" }
+    ];
+
+    let index = 0;
+    let isShuffle = false;
+    let isRepeat = false;
+
+    function playSong(i) {
+      index = i;
+      audio.src = playlist[index].src;
+      audio.play();
+
+      document.getElementById("nowPlaying").innerText =
+        "🎵 " + playlist[index].title;
+
+      const icon = document.querySelector("#playBtn i");
+      icon.classList.replace("fa-play", "fa-pause");
+    }
+
+    function togglePlay() {
+      const icon = document.querySelector("#playBtn i");
+
+      if (audio.paused) {
+        if (!audio.src) playSong(index);
+        else audio.play();
+        icon.classList.replace("fa-play", "fa-pause");
+      } else {
+        audio.pause();
+        icon.classList.replace("fa-pause", "fa-play");
+      }
+    }
+
+    function nextSong() {
+      index = isShuffle
+        ? Math.floor(Math.random() * playlist.length)
+        : (index + 1) % playlist.length;
+      playSong(index);
+    }
+
+    function prevSong() {
+      index = index === 0 ? playlist.length - 1 : index - 1;
+      playSong(index);
+    }
+
+    function toggleShuffle(btn) {
+      isShuffle = !isShuffle;
+      btn.classList.toggle("active", isShuffle);
+    }
+
+    function toggleRepeat(btn) {
+      isRepeat = !isRepeat;
+      btn.classList.toggle("active", isRepeat);
+    }
+
+    audio.addEventListener("ended", () => {
+      if (isRepeat) playSong(index);
+      else nextSong();
+    });
+  </script>
+
+</body>
+</html>
