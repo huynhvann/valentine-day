@@ -8,9 +8,9 @@ const playlist = [
   { title: "Dangrangto - Thế giới của anh", src: "images/Dangrangto - 'thế giới của anh' (Prod. DONAL, Lespace).mp3" },
   { title: "Em - MAYDAYs", src: "images/Em - MAYDAYs (Official Visualizer).mp3"},
   { title: "Hodge - Waltz for Moon", src: "images/Hodge - Waltz for Moon.mp3"},
-  { title: "Lady Gaga, Bruno Mars - Die With A Smile", src: "images/Lady Gaga, Bruno Mars - Die With A Smile.mp3"},
   { title: "Mindme - I'll Do It All Over Again", src: "images/Mindme - I'll Do It All Over Again.mp3"},
   { title: "Stephen Sanchez - Until I Found You", src: "images/Stephen Sanchez - Until I Found You.mp3" },
+  { title: "Lady Gaga, Bruno Mars - Die With A Smile", src: "images/Lady Gaga, Bruno Mars - Die With A Smile.mp3"},
 ];
 
 let index = 0;
@@ -119,3 +119,4 @@ function renderPlaylist(){
   });
 }
 renderPlaylist();
+
