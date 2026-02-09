@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="style/styles.css">
+</head>
+
+<body>
+
+<div id="heart-container"></div>
+<div class="overlay" id="overlay"></div>
+
+<!-- COUNTDOWN -->
+<div class="box" id="countdownBox">
+  <div class="title heartbeat">💖 Valentine is coming 💖</div>
+
+  <div id="countdown">
+    <div class="time-box"><span id="days">0</span><label>Ngày</label></div>
+    <div class="time-box"><span id="hours">0</span><label>Giờ</label></div>
+    <div class="time-box"><span id="minutes">0</span><label>Phút</label></div>
+    <div class="time-box"><span id="seconds">0</span><label>Giây</label></div>
+  </div>
+
+  <div class="note">⏳ Chờ đến 18:30 – 14/02 nhé 💌</div>
+ 
+ <br>
+ <div class="title heartbeat">💖 Valentine playlist 💖</div>
+ <div class="playlist" id="playlist"></div>
+  <div class="song-title" id="nowPlaying">Chưa phát bài nào</div>
+
+  <div class="controls">
+    <button class="ctrl-btn" onclick="toggleShuffle(this)">
+      <i class="fa-solid fa-shuffle"></i>
+    </button>
+
+    <button class="ctrl-btn" onclick="prevSong()">
+      <i class="fa-solid fa-backward-step"></i>
+    </button>
+
+    <button id="playBtn" class="ctrl-btn play" onclick="togglePlay()">
+      <i class="fa-solid fa-play"></i>
+    </button>
+
+    <button class="ctrl-btn" onclick="nextSong()">
+      <i class="fa-solid fa-forward-step"></i>
+    </button>
+
+    <button class="ctrl-btn" onclick="toggleRepeat(this)">
+      <i class="fa-solid fa-rotate-right"></i>
+    </button>
+  </div>
+</div>
+
+<!-- AUDIO -->
+<audio id="audio"></audio>
+<audio id="climaxAudio" src="./images/recap.mp3"></audio>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
