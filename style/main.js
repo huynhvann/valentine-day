@@ -1,18 +1,20 @@
-/* ================= BACKGROUND EFFECT ================= */
+/* BACKGROUND EFFECT */
 setInterval(() => {
   const span = document.createElement("span");
   span.innerText = ["💗", "💖", "✨", "🌸"][Math.floor(Math.random() * 4)];
   span.style.left = Math.random() * 100 + "vw";
   span.style.fontSize = Math.random() * 12 + 16 + "px";
   document.getElementById("effect").appendChild(span);
+  setTimeout(() => span.remove(), 8000);
+}, 1200);
 
-  setTimeout(() => span.remove(), 7000);
-}, 900);
-
-/* ================= MUSIC ================= */
 const bgMusic = document.getElementById("bgMusic");
 bgMusic.volume = 0.6;
-bgMusic.play().catch(() => {});
+
+document.body.addEventListener("click", () => {
+  bgMusic.play().catch(() => {});
+}, { once: true });
+
 
 /* ================= HANDWRITING ================= */
 const letter = document.getElementById("letter");
@@ -60,12 +62,13 @@ function typeWriter() {
   if (index < text.length) {
     letter.innerHTML += text[index] === "\n" ? "<br>" : text[index];
     index++;
-    setTimeout(typeWriter, 40);
+    setTimeout(typeWriter, 35);
   } else {
     openBtn.style.display = "inline-block";
   }
 }
 typeWriter();
+
 /* POPUP */
 const popup = document.getElementById("popup");
 const closePopup = document.getElementById("closePopup");
