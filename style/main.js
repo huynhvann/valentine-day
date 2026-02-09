@@ -70,13 +70,42 @@ function typeWriter() {
 typeWriter();
 
 /* POPUP */
-const popup = document.getElementById("popup");
-const closePopup = document.getElementById("closePopup");
+const miniPopup = document.getElementById("miniPopup");
+const closeMini = document.getElementById("closeMini");
 
 openBtn.addEventListener("click", () => {
-  popup.style.display = "flex";
+  miniPopup.style.display = "flex";
+
+  // Hiệu ứng tim nổ nhẹ
+  for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("span");
+    heart.innerText = "💖";
+    heart.style.position = "fixed";
+    heart.style.left = window.innerWidth / 2 + "px";
+    heart.style.top = window.innerHeight / 2 + "px";
+    heart.style.fontSize = "20px";
+    heart.style.pointerEvents = "none";
+    heart.style.transition = "1s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.top = Math.random() * window.innerHeight + "px";
+      heart.style.opacity = 0;
+    }, 50);
+
+    setTimeout(() => heart.remove(), 1000);
+  }
 });
 
-closePopup.addEventListener("click", () => {
-  popup.style.display = "none";
+closeMini.addEventListener("click", () => {
+  miniPopup.style.display = "none";
+});
+
+// Click ngoài popup để đóng
+miniPopup.addEventListener("click", (e) => {
+  if (e.target === miniPopup) {
+    miniPopup.style.display = "none";
+  }
 });
