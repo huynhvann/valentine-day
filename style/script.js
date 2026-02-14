@@ -110,7 +110,7 @@ function startTransition() {
   climaxAudio.play();
   overlay.classList.add("show");
   setTimeout(() => {
-    location.href = "main.html";
+    location.href = "maino.html";
   }, 1500);
 }
 const playlistBox = document.getElementById("playlist");
