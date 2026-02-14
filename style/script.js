@@ -133,7 +133,7 @@ renderPlaylist();
 enterBtn.onclick = () => {
   overlay.classList.add("show");
   setTimeout(() => {
-    location.href = "main.html";
+    location.href = "maino.html";
   }, 1200);
 };
 
